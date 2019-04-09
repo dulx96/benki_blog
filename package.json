@@ -1,0 +1,47 @@
+{
+  "name": "benki-blog",
+  "private": true,
+  "description": "blog at benkitv.com/blog",
+  "version": "0.1.0",
+  "author": "Du Le",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "dotenv": "^7.0.0",
+    "gatsby": "^2.3.5",
+    "gatsby-image": "^2.0.37",
+    "gatsby-plugin-less": "^2.0.12",
+    "gatsby-plugin-manifest": "^2.0.26",
+    "gatsby-plugin-offline": "^2.0.25",
+    "gatsby-plugin-postcss": "^2.0.7",
+    "gatsby-plugin-purgecss": "^3.1.1",
+    "gatsby-plugin-react-helmet": "^3.0.11",
+    "gatsby-plugin-resolve-src": "^2.0.0",
+    "gatsby-plugin-sharp": "^2.0.32",
+    "gatsby-remark-embed-youtube": "^0.0.7",
+    "gatsby-remark-images": "^3.0.10",
+    "gatsby-remark-images-contentful": "^2.0.10",
+    "gatsby-remark-responsive-iframe": "^2.1.1",
+    "gatsby-remark-unwrap-images": "^1.0.1",
+    "gatsby-source-contentful": "^2.0.45",
+    "gatsby-source-filesystem": "^2.0.28",
+    "gatsby-transformer-remark": "^2.3.8",
+    "gatsby-transformer-sharp": "^2.1.17",
+    "less": "^3.9.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-helmet": "^5.2.0"
+  },
+  "devDependencies": {
+    "prettier": "^1.16.4"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write src/**/*.{js,jsx}",
+    "start": "yarn develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+  }
+}
