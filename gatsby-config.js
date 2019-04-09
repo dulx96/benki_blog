@@ -39,11 +39,11 @@ module.exports = {
           {
             resolve: `gatsby-remark-responsive-iframe`,
           },
-          // `gatsby-remark-unwrap-images`,
+          `gatsby-remark-unwrap-images`,
           {
             resolve: `gatsby-remark-images-contentful`,
             options: {
-              maxWidth: 9999,
+              maxWidth: 1110,
               linkImagesToOriginal: false,
               withWebp: true,
             },
