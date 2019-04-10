@@ -177,7 +177,7 @@
 }
 
 .nav-item, .nav-link, .navbar-brand .navbar__logo {
-    font-family: Avenir Demi, Helvetica Neue, Helvetica, sans-serif
+    font-family: SVN Avenir Next Rounded Demi, Helvetica Neue, Helvetica, sans-serif
 }
 
 .nav-item, .nav-link {
@@ -195,7 +195,7 @@
     color: #000;
     text-align: center;
     font-size: 24px;
-    font-family: Avenir Demi, Helvetica Neue, Helvetica, sans-serif;
+    font-family: SVN Avenir Next Rounded Demi, Helvetica Neue, Helvetica, sans-serif;
     padding: 0
 }
 
@@ -681,7 +681,7 @@ section.hero__kits-overview-section {
 
 .news__content {
     color: #000;
-    font-family: Avenir Demi, Helvetica Neue, Helvetica, sans-serif
+    font-family: SVN Avenir Next Rounded Demi, Helvetica Neue, Helvetica, sans-serif
 }
 
 .news__content h2, .news__content h3, .news__content h4 {
@@ -797,7 +797,7 @@ section.hero__kits-overview-section {
 
 .news__content .card li, .news__content .card p {
     color: #434a54;
-    font-family: Avenir Medium, Helvetica Neue, Helvetica, sans-serif;
+    font-family: SVN Avenir Next Rounded Medium, Helvetica Neue, Helvetica, sans-serif;
     font-size: 18px;
     line-height: 32px
 }
@@ -872,8 +872,8 @@ section.hero__kits-overview-section {
 
 .card-body p img {
     height: auto;
-    max-width: 300px;
-    min-width: 250px;
+    /*max-width: 300px;*/
+    /*min-width: 250px;*/
     width: 80%
 }
 

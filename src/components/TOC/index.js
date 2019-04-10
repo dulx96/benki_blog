@@ -70,9 +70,6 @@ export default class TOC extends React.PureComponent {
 
   }
 
-  componentWillUpdate(nextProps, nextState, nextContext) {
-    alert('update')
-  }
 
   render() {
     const childrens = this.props.htmlTree.children || []

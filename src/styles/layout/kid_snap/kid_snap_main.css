@@ -1,6 +1,6 @@
 .docs__navigation {
     color: #000;
-    font-family: Avenir Demi, Helvetica Neue, Helvetica, sans-serif;
+    font-family: SVN Avenir Next Rounded Demi, Helvetica Neue, Helvetica, sans-serif;
     padding-left: 2rem
 }
 
@@ -67,7 +67,7 @@
 
 .docs__content {
     color: #000;
-    font-family: Avenir Demi, Helvetica Neue, Helvetica, sans-serif
+    font-family: SVN Avenir Next Rounded Demi, Helvetica Neue, Helvetica, sans-serif
 }
 
 .docs__content .card {
@@ -107,7 +107,7 @@
 }
 
 .docs__content h4 {
-    font-family: Avenir Demi, Helvetica Neue, Helvetica, sans-serif;
+    font-family: SVN Avenir Next Rounded Demi, Helvetica Neue, Helvetica, sans-serif;
     font-size: 18px;
     line-height: 32px
 }
@@ -118,12 +118,12 @@
 
 .docs__content li, .docs__content p {
     color: #434a54;
-    font-family: Avenir Medium, Helvetica Neue, Helvetica, sans-serif;
+    font-family: SVN Avenir Next Rounded Medium, Helvetica Neue, Helvetica, sans-serif;
     font-size: 18px
 }
 
 .docs__content i {
-    font-family: Avenir, Helvetica Neue, Helvetica, sans-serif
+    font-family: SVN Avenir Next Rounded, Helvetica Neue, Helvetica, sans-serif
 }
 
 .docs__content .highlight {
@@ -148,7 +148,7 @@
     box-sizing: border-box;
     color: #434a54;
     display: block;
-    font-family: Avenir Medium, Helvetica Neue, Helvetica, sans-serif;
+    font-family: SVN Avenir Next Rounded Medium, Helvetica Neue, Helvetica, sans-serif;
     font-size: 18px;
     line-height: 32px;
     margin-bottom: 1rem;
@@ -165,7 +165,7 @@
     color: #000 !important;
     border: 1px solid rgba(0, 0, 0, .03);
     box-shadow: 0 1px 8px 0 rgba(0, 0, 0, .06);
-    font-family: Avenir Medium, Helvetica Neue, Helvetica, sans-serif;
+    font-family: SVN Avenir Next Rounded Medium, Helvetica Neue, Helvetica, sans-serif;
     font-weight: 700;
     font-size: 16px;
     list-style: none;
@@ -260,7 +260,7 @@
 }
 
 .hero__main-content h1, .hero__main-content h3 {
-    font-family: Avenir Demi, Helvetica Neue, Helvetica, sans-serif
+    font-family: SVN Avenir Next Rounded Demi, Helvetica Neue, Helvetica, sans-serif
 }
 
 .hero__main-content h1 {
@@ -684,21 +684,21 @@
 .hero__privacy-section h2 {
     padding-top: 20px;
     font-size: 36px;
-    font-family: Avenir Demi, Helvetica Neue, Helvetica, sans-serif;
+    font-family: SVN Avenir Next Rounded Demi, Helvetica Neue, Helvetica, sans-serif;
     letter-spacing: -.5px;
     line-height: 48px
 }
 
 .hero__privacy-section h5 {
     font-size: 16px;
-    font-family: Avenir Bold, Helvetica Neue, Helvetica, sans-serif;
+    font-family: SVN Avenir Next Rounded Bold, Helvetica Neue, Helvetica, sans-serif;
     line-height: 26px;
     margin-bottom: 0
 }
 
 .hero__privacy-section h6 {
     font-size: 16px;
-    font-family: Avenir, Helvetica Neue, Helvetica, sans-serif;
+    font-family: SVN Avenir Next Rounded, Helvetica Neue, Helvetica, sans-serif;
     line-height: 24px;
     color: #434a54
 }
@@ -714,7 +714,7 @@
     }
 
     .hero__privacy-section h6 {
-        font-family: Avenir Medium, Helvetica Neue, Helvetica, sans-serif;
+        font-family: SVN Avenir Next Rounded Medium, Helvetica Neue, Helvetica, sans-serif;
         letter-spacing: -.3px
     }
 
@@ -773,7 +773,7 @@
 }
 
 .homepage p {
-    font-family: Avenir, Helvetica Neue, Helvetica, sans-serif;
+    font-family: SVN Avenir Next Rounded, Helvetica Neue, Helvetica, sans-serif;
     font-size: 16px;
     line-height: 24px;
     color: #434a54
@@ -781,7 +781,7 @@
 
 @media screen and (min-width: 1024px) {
     .homepage p {
-        font-family: Avenir Medium, Helvetica Neue, Helvetica, sans-serif;
+        font-family: SVN Avenir Next Rounded Medium, Helvetica Neue, Helvetica, sans-serif;
         font-size: 24px;
         line-height: 36px;
         letter-spacing: -.5px
@@ -808,60 +808,4 @@
 .homepage section.partners .partner__logos__row {
     margin-left: 0;
     margin-right: 0
-}
-
-@font-face {
-    font-family: Avenir;
-    src: url(/static/AvenirNextLTPro-Regular-b5ed933057eaf1919dd79d81248cdbce.otf) format("opentype");
-    font-weight: 400;
-    font-style: normal
-}
-
-@font-face {
-    font-family: Avenir Medium;
-    src: url(/static/AvenirNextLTPro-Medium-67d2444903142854078d742606486958.otf) format("opentype");
-    font-weight: 400;
-    font-style: normal
-}
-
-@font-face {
-    font-family: Avenir Medium Italic;
-    src: url(/static/AvenirNextLTPro-It-06248f3342288d7681fc55e2ffd7cd17.otf) format("opentype");
-    font-weight: 400;
-    font-style: normal
-}
-
-@font-face {
-    font-family: Avenir Demi;
-    src: url(/static/AvenirNextLTPro-Demi-38c2387d8896353c117dda1985cb5dff.otf) format("opentype");
-    font-weight: 400;
-    font-style: normal
-}
-
-@font-face {
-    font-family: Avenir Demi Italic;
-    src: url(/static/AvenirNextLTPro-DemiIt-43ddcc470f1d101787d5802ded8a5775.otf) format("opentype");
-    font-weight: 400;
-    font-style: normal
-}
-
-@font-face {
-    font-family: Avenir Bold;
-    src: url(/static/AvenirNextLTPro-Bold-e2f1ac7d74c048a8e1baee344057ca80.otf) format("opentype");
-    font-weight: 400;
-    font-style: normal
-}
-
-@font-face {
-    font-family: Avenir Bold Italic;
-    src: url(/static/AvenirNextLTPro-BoldIt-73e9242a1983a5c0a1a6e4d32a3b59f1.ttf) format("truetype");
-    font-weight: 400;
-    font-style: normal
-}
-
-@font-face {
-    font-family: Avenir Heavy;
-    src: url(/static/AvenirNextLTPro-Heavy-1d62d8c06d17af14e3ed4cf7a83ec7f5.otf) format("opentype");
-    font-weight: 400;
-    font-style: normal
 }

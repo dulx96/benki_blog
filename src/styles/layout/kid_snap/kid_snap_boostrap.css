@@ -31,7 +31,7 @@
     --breakpoint-md: 1024px;
     --breakpoint-lg: 1366px;
     --breakpoint-xl: 1679px;
-    --font-family-sans-serif: "Avenir", Helvetica Neue, Helvetica, sans-serif;
+    --font-family-sans-serif: "SVN Avenir Next Rounded", Helvetica Neue, Helvetica, sans-serif;
     --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
 }
 
@@ -52,7 +52,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
     margin: 0;
-    font-family: Avenir, Helvetica Neue, Helvetica, sans-serif;
+    font-family: SVN Avenir Next Rounded, Helvetica Neue, Helvetica, sans-serif;
     font-size: 1.25rem;
     font-weight: 400;
     line-height: 1.625;
@@ -327,7 +327,7 @@ template {
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
     margin-bottom: .5rem;
-    font-family: Avenir Demi, Helvetica Neue, Helvetica, sans-serif;
+    font-family: SVN Avenir Next Rounded Demi, Helvetica Neue, Helvetica, sans-serif;
     font-weight: 400;
     line-height: 1.1;
     color: #000
@@ -5775,7 +5775,7 @@ a.close.disabled {
     z-index: 1070;
     display: block;
     margin: 0;
-    font-family: Avenir, Helvetica Neue, Helvetica, sans-serif;
+    font-family: SVN Avenir Next Rounded, Helvetica Neue, Helvetica, sans-serif;
     font-style: normal;
     font-weight: 400;
     line-height: 1.625;
@@ -5886,7 +5886,7 @@ a.close.disabled {
     left: 0;
     z-index: 1060;
     max-width: 276px;
-    font-family: Avenir, Helvetica Neue, Helvetica, sans-serif;
+    font-family: SVN Avenir Next Rounded Demi, Helvetica Neue, Helvetica, sans-serif;
     font-style: normal;
     font-weight: 400;
     line-height: 1.625;
@@ -10021,7 +10021,6 @@ a.text-dark:focus, a.text-dark:hover {
 
 h1, h2 {
     font-size: 2rem;
-    line-height: 38px
 }
 
 h2 {
@@ -10036,7 +10035,7 @@ h3 {
 }
 
 h4 {
-    font-family: Avenir Demi, Helvetica Neue, Helvetica, sans-serif
+    font-family: SVN Avenir Next Rounded Demi, Helvetica Neue, Helvetica, sans-serif
 }
 
 .h4, h4 {
@@ -10065,7 +10064,7 @@ h5 {
 
     h2 {
         font-size: 2.25rem;
-        font-family: Avenir Demi, Helvetica Neue, Helvetica, sans-serif;
+        font-family: SVN Avenir Next Rounded Demi, Helvetica Neue, Helvetica, sans-serif;
         line-height: 48px
     }
 
@@ -10075,11 +10074,11 @@ h5 {
     }
 
     h4, h5 {
-        font-family: Avenir Bold, Helvetica Neue, Helvetica, sans-serif
+        font-family: SVN Avenir Next Rounded Bold, Helvetica Neue, Helvetica, sans-serif
     }
 
     h6 {
-        font-family: Avenir, Helvetica Neue, Helvetica, sans-serif;
+        font-family: SVN Avenir Next Rounded, Helvetica Neue, Helvetica, sans-serif;
         font-size: 1.25rem;
         line-height: 28px
     }
@@ -10154,23 +10153,23 @@ section {
 }
 
 .font-weight-light {
-    font-family: Avenir, Helvetica Neue, Helvetica, sans-serif
+    font-family: SVN Avenir Next Rounded, Helvetica Neue, Helvetica, sans-serif
 }
 
 .font-weight-normal {
-    font-family: Avenir Medium, Helvetica Neue, Helvetica, sans-serif
+    font-family: SVN Avenir Next Rounded Medium, Helvetica Neue, Helvetica, sans-serif
 }
 
 .font-weight-demi {
-    font-family: Avenir Demi, Helvetica Neue, Helvetica, sans-serif
+    font-family: SVN Avenir Next Rounded Demi, Helvetica Neue, Helvetica, sans-serif
 }
 
 .font-weight-bold {
-    font-family: Avenir Bold, Helvetica Neue, Helvetica, sans-serif
+    font-family: SVN Avenir Next Rounded Bold, Helvetica Neue, Helvetica, sans-serif
 }
 
 .font-weight-heavy {
-    font-family: Avenir Heavy, Helvetica Neue, Helvetica, sans-serif
+    font-family: SVN Avenir Next Rounded Heavy, Helvetica Neue, Helvetica, sans-serif
 }
 
 a {
@@ -10183,7 +10182,7 @@ a {
 
 .btn {
     font-size: 16px;
-    font-family: Avenir Demi, Helvetica Neue, Helvetica, sans-serif
+    font-family: SVN Avenir Next Rounded Demi, Helvetica Neue, Helvetica, sans-serif
 }
 
 .btn-primary {
@@ -10250,7 +10249,7 @@ a {
     bottom: 3px;
     letter-spacing: 1px;
     font-size: 14px;
-    font-family: Avenir Bold, Helvetica Neue, Helvetica, sans-serif
+    font-family: SVN Avenir Next Rounded Bold, Helvetica Neue, Helvetica, sans-serif
 }
 
 .badge-outline {
@@ -10264,7 +10263,7 @@ a {
 .hero__kits-overview-section .badge {
     position: relative;
     bottom: 2px;
-    font-family: Avenir Bold, Helvetica Neue, Helvetica, sans-serif;
+    font-family: SVN Avenir Next Rounded Bold, Helvetica Neue, Helvetica, sans-serif;
     font-size: 11px;
     letter-spacing: .7px;
     padding-bottom: 12px
@@ -10315,7 +10314,7 @@ a {
 .card__share-buttons h3 {
     color: #9b9b9b;
     letter-spacing: 1px !important;
-    font-family: Avenir Bold, Helvetica Neue, Helvetica, sans-serif;
+    font-family: SVN Avenir Next Rounded Bold, Helvetica Neue, Helvetica, sans-serif;
     font-size: 16px;
     line-height: 24px
 }

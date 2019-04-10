@@ -4,6 +4,8 @@ import { graphql } from 'gatsby'
 import Layout from 'components/Layout'
 import TOC from 'components/TOC'
 // plugin
+// style
+import './blogpost.less'
 
 const BlogPost = ({ data }) => {
   const { body } = data.contentfulBlogSpot
@@ -17,8 +19,12 @@ const BlogPost = ({ data }) => {
               <div className="card-body" dangerouslySetInnerHTML={{ __html: body.childMarkdownRemark.html }}/>
             </div>
           </div>
-          <div className="col-sm-3 ">
-            <TOC htmlTree={body.childMarkdownRemark.htmlAst} headings={body.childMarkdownRemark.headings}/>
+          {/*using trick same container fixed to fixed toc*/}
+          <div className="container toc">
+            <div className="col-sm-9"/>
+            <div className="col-sm-3">
+              <TOC htmlTree={body.childMarkdownRemark.htmlAst} headings={body.childMarkdownRemark.headings}/>
+            </div>
           </div>
 
         </div>
