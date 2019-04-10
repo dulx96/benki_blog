@@ -1,5 +1,2 @@
-@import "~bootstrap/dist/css/bootstrap.min.css";
-
-body {
-    font-family: SVN Avenir Next Rounded, sans-serif;
-}
+@import "~bootstrap/dist/css/bootstrap-reboot.css";
+@import "kid_snap/kit_snap_copy.css";

@@ -12,6 +12,13 @@ module.exports = {
     `gatsby-plugin-resolve-src`,
     `gatsby-plugin-react-helmet`,
     {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: CONTENTFUL_SPACE_ID,
+        accessToken: CONTENTFUL_ACCESS_TOKEN,
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
@@ -35,11 +42,16 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
+        tableOfContents: {
+          pathToSlugField: "frontmatter.slug",
+          heading: null,
+          maxDepth: 3,
+        },
         plugins: [
           {
             resolve: `gatsby-remark-responsive-iframe`,
           },
-          `gatsby-remark-unwrap-images`,
+          // `gatsby-remark-unwrap-images`,
           {
             resolve: `gatsby-remark-images-contentful`,
             options: {
@@ -48,15 +60,8 @@ module.exports = {
               withWebp: true,
             },
           },
-
+          `gatsby-remark-autolink-headers`,
         ],
-      },
-    },
-    {
-      resolve: `gatsby-source-contentful`,
-      options: {
-        spaceId: CONTENTFUL_SPACE_ID,
-        accessToken: CONTENTFUL_ACCESS_TOKEN,
       },
     },
     {
