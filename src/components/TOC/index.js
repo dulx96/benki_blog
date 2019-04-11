@@ -2,7 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 // plugin
 import AnchorLink from 'react-anchor-link-smooth-scroll'
-
+//style
+import './index.less'
 // functions
 const getHeaderChilds = (childrens, headings) => childrens.filter(c => {
   if (['h1', 'h2', 'h3'].includes(c.tagName)) {
@@ -79,13 +80,16 @@ export default class TOC extends React.PureComponent {
     }
     const headerChilds = getHeaderChilds(childrens, headings)
     return (
-      <ul>
-        {headerChilds.map(e => <li key={e.id}
-                                   className={`${e.tagName === 'h1' ? 'level-1' : e.tagName === 'h2' ? 'level-2' : 'level-3'}`}
-                                   id={`toc-${e.id}`}>
+      <div className="toc_container">
+        <div className="toc_name">
+          Mục lục
+        </div>
+        {headerChilds.map(e => <div key={e.id}
+                                    className={`${e.tagName === 'h1' ? 'level-1' : e.tagName === 'h2' ? 'level-2' : 'level-3'} item`}
+                                    id={`toc-${e.id}`}>
           <AnchorLink href={`#${e.id}`} offset={this.defaulOffset}>{e.text}</AnchorLink>
-        </li>)}
-      </ul>
+        </div>)}
+      </div>
     )
   }
 }
