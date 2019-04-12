@@ -1,21 +1,62 @@
 import React from 'react'
-import { Link } from 'gatsby'
-
+import { StaticQuery, graphql, Link } from 'gatsby'
+import Img from 'gatsby-image'
 import Layout from '../components/Layout'
-import Image from '../components/image'
-import SEO from '../components/seo'
+import { genParentSlug } from 'heplers'
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]}/>
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image/>
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
+class IndexPage extends React.PureComponent {
+  constructor(props) {
+    super(props)
+
+  }
+
+  render() {
+    const data = this.props.data
+    const card = data.Post.edges.map(e => {
+      const link = genParentSlug(e)
+      return (
+        <>
+          <Link to={link}> <Img sizes={e.node.cover.sizes}/> </Link>
+        </>
+      )
+    })
+    return (
+      <Layout>
+        {card}
+      </Layout>
+
+    )
+  }
+
+}
+
+export default props => (
+  <StaticQuery query={graphql
+    `
+       {
+          Post: allContentfulPost {
+            edges {
+              node {
+                id   
+                title
+                slug
+                cover {
+                 sizes(maxWidth: 1280) {
+                    ...GatsbyContentfulSizes
+                 }
+                }
+                categories {
+                  title 
+                  level
+                  slug
+                }
+              }
+            }
+          }
+    }
+    
+    `
+
+  }
+               render={data => <IndexPage data={data} {...props}/>}/>
 )
-
-export default IndexPage

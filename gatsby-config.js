@@ -16,6 +16,7 @@ module.exports = {
       options: {
         spaceId: CONTENTFUL_SPACE_ID,
         accessToken: CONTENTFUL_ACCESS_TOKEN,
+
       },
     },
     {
@@ -43,7 +44,7 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         tableOfContents: {
-          pathToSlugField: "frontmatter.slug",
+          pathToSlugField: 'frontmatter.slug',
           heading: null,
           maxDepth: 3,
         },
@@ -71,15 +72,16 @@ module.exports = {
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
-        postCssPlugins: [require('autoprefixer')({
-          browsers: [
-            '>1%',
-            'last 4 versions',
-            'Firefox ESR',
-            'not ie < 9',
-          ],
-          flexbox: 'no-2009',
-        })],
+        postCssPlugins: [
+          require('autoprefixer')({
+            browsers: [
+              '>1%',
+              'last 4 versions',
+              'Firefox ESR',
+              'not ie < 9',
+            ],
+            flexbox: 'no-2009',
+          })],
       },
     },
     {
@@ -88,8 +90,5 @@ module.exports = {
         printRejected: true,
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 }
