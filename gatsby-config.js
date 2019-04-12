@@ -19,6 +19,8 @@ module.exports = {
 
       },
     },
+    `gatsby-contentful-slug`
+    ,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

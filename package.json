@@ -19,7 +19,7 @@
     "gatsby-plugin-sharp": "^2.0.32",
     "gatsby-remark-autolink-headers": "^2.0.16",
     "gatsby-remark-embed-youtube": "^0.0.7",
-        "gatsby-remark-images": "^3.0.10",
+    "gatsby-remark-images": "^3.0.10",
     "gatsby-remark-images-contentful": "^2.0.10",
     "gatsby-remark-responsive-iframe": "^2.1.1",
     "gatsby-remark-unwrap-images": "^1.0.1",
