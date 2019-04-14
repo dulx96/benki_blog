@@ -16,7 +16,7 @@ class IndexPage extends React.PureComponent {
       const link = genParentSlug(e)
       return (
         <>
-          <Link to={link}> <Img sizes={e.node.cover.sizes}/> </Link>
+          <Link to={link}></Link>
         </>
       )
     })

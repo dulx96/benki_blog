@@ -1,0 +1,19 @@
+@import "~hamburgers/dist/hamburgers.css";
+
+.header-logo {
+    width: 200px;
+    height: auto;
+}
+
+.hamburger {
+    z-index: 1051;
+    position: relative;
+}
+
+.navbar-toggler {
+    position: relative;
+}
+
+.modal {
+    display: block !important;
+}

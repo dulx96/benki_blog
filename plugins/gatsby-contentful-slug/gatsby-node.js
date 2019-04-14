@@ -52,7 +52,7 @@ async function onCreateNode({ node, getNode, actions, createNodeId }) {
       return categorySlugNode
     } catch (e) {
       console.log(e.message)
-      return {}
+      return {} 
     }
   }
   // gen slug post node, using interna mediaTYpe for detect

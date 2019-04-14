@@ -1,0 +1,20 @@
+.modalOverlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background: #000;
+  opacity: 0.5;
+  transition: all 0.15s;
+  visibility: hidden;
+  &.active {
+    visibility: visible;
+  }
+}
+.modalNav {
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+  z-index: 999;
+}

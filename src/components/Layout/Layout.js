@@ -2,23 +2,34 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 
+// components
+import Header from './Header/'
+
+// styles
 import 'styles/layout/index.css'
 import 'styles/layout/index.less'
 
-const Layout = ({ children }) => (
+const Layout = (props) => (
   <StaticQuery
     query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
+       {
+           level1Category: allContentfulCategory(filter:{level: {eq:1}}) {
+              edges {
+                node {
+                  displayName
+                  childCategorySlug{
+                    slugCategory
+                  }
+                }
+              }
+            }
+          
           }
-        }
-      }
     `}
     render={data => (
       <>
-        <main>{children}</main>
+        <Header {...props}/>
+        <main>{props.children}</main>
       </>
     )}
   />
