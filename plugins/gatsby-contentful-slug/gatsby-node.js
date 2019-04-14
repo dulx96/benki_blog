@@ -27,17 +27,21 @@ async function onCreateNode({ node, getNode, actions, createNodeId }) {
   const createNode = actions.createNode
   const createParentChildLink = actions.createParentChildLink
   // gen slug category node, using slug, level to define category node, be careful
+  if (!node.internal) {
+    return {}
+  }
   if (node.slug && node.level) {
     try {
       const slug = genCategorySlug(node, getNode)
       const categorySlugNode = {
         id: createNodeId(`${node.id} >>> CategorySlug`),
         children: [],
+        parent: node.id,
         slugCategory: slug,
         internal: {
-          content: slug,
+          content: slug + 'categorySlug',
           type: `CategorySlug`,
-          contentDigest: crypto.createHash(`md5`).update(slug).digest(`hex`),
+          contentDigest: crypto.createHash(`md5`).update(slug + 'categorySlug').digest(`hex`),
         },
       }
       createNode(categorySlugNode)
@@ -45,11 +49,13 @@ async function onCreateNode({ node, getNode, actions, createNodeId }) {
         parent: node,
         child: categorySlugNode,
       })
+      return categorySlugNode
     } catch (e) {
       console.log(e.message)
       return {}
     }
   }
+  // gen slug post node, using interna mediaTYpe for detect
   if (node.internal.mediaType !== `text/markdown`) {
     return {}
   }
@@ -67,7 +73,7 @@ async function onCreateNode({ node, getNode, actions, createNodeId }) {
       internal: {
         content: slug,
         type: `PostSlug`,
-        contentDigest: crypto.createHash(`md5`).update(slug).digest(`hex`),
+        contentDigest: crypto.createHash(`md5`).update(slug + 'postSlug').digest(`hex`),
       },
     }
     createNode(postSlugNode)
