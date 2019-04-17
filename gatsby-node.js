@@ -1,6 +1,4 @@
 const path = require('path')
-// helper
-const { genParentSlug } = require('./src/heplers/index.js')
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   return graphql(
@@ -10,7 +8,9 @@ exports.createPages = ({ graphql, actions }) => {
               node {
                 id   
                 title
-                slug
+                childPostSlug {
+                 slugPost
+                }
                 categories {
                   title
                   level
@@ -19,10 +19,16 @@ exports.createPages = ({ graphql, actions }) => {
               }
             }
           }
-          allCategoryLv1:   allContentfulCategory(filter:{level: {eq:1}}) {
+          allCategory: allContentfulCategory {
                               edges {
                                 node {
                                   id
+                                  subCat {
+                                    id
+                                  }
+                                  parentCat {
+                                    id
+                                  }
                                   childCategorySlug{
                                     slugCategory
                                   }
@@ -39,7 +45,7 @@ exports.createPages = ({ graphql, actions }) => {
     // create page blog
     const blogPostTemplate = path.resolve('./src/templates/blogpost.js')
     result.data.allPost.edges.forEach(edge => {
-      const slug = genParentSlug(edge)
+      const slug = edge.node.childPostSlug.slugPost
       createPage({
         path: slug,
         component: blogPostTemplate,
@@ -49,18 +55,33 @@ exports.createPages = ({ graphql, actions }) => {
       })
     })
 
-    // create page lv1 category
-    const categoryLv1Teamplate = path.resolve('./src/templates/categoryLv1.js')
-    const allCategoryLv1 = result.data.allCategoryLv1
-    allCategoryLv1.edges.forEach(edge => {
+    // create page category List, post List
+    // subCat null => post List
+    const categoryListTeamplate = path.resolve('./src/templates/categoryList.js')
+    const postListTemplate = path.resolve('./src/templates/postList.js')
+    const allCategory = result.data.allCategory
+    allCategory.edges.forEach(edge => {
       const slug = edge.node.childCategorySlug.slugCategory
-      createPage({
-        path: slug,
-        component: categoryLv1Teamplate,
-        context: {
-          parentCatId: edge.node.id,
-        },
-      })
+      // subCat defined => crate child category page
+      if (edge.node.subCat) {
+        createPage({
+          path: slug,
+          component: categoryListTeamplate,
+          context: {
+            parentCatId: edge.node.id,
+          },
+        })
+      } else {
+        createPage({
+          path: slug,
+          component: postListTemplate,
+          context: {
+            lastCatId: edge.node.id,
+          },
+
+        })
+      }
+
     })
   }).catch(e =>
     console.log('Error retrieving contentful data', e.message))

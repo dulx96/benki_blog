@@ -2,7 +2,6 @@ import React from 'react'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import Layout from '../components/Layout'
-import { genParentSlug } from 'heplers'
 
 class IndexPage extends React.PureComponent {
   constructor(props) {
@@ -13,16 +12,19 @@ class IndexPage extends React.PureComponent {
   render() {
     const data = this.props.data
     const card = data.Post.edges.map(e => {
-      const link = genParentSlug(e)
+      const link = e.node.childPostSlug.slugPost
+      const title = e.node.title
       return (
         <>
-          <Link to={link}></Link>
+          <Link to={link}>{title}</Link>
         </>
       )
     })
     return (
       <Layout>
-        {card}
+        <section className="container">
+          {card}
+        </section>
       </Layout>
 
     )
@@ -39,7 +41,9 @@ export default props => (
               node {
                 id   
                 title
-                slug
+                childPostSlug {
+                    slugPost
+                }
                 cover {
                  sizes(maxWidth: 1280) {
                     ...GatsbyContentfulSizes
