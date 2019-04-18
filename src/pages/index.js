@@ -12,7 +12,7 @@ class IndexPage extends React.PureComponent {
   render() {
     const data = this.props.data
     const card = data.Post.edges.map(e => {
-      const link = e.node.childPostSlug.slugPost
+      const link = e.node.fields.genSlug
       const title = e.node.title
       return (
         <>
@@ -41,18 +41,13 @@ export default props => (
               node {
                 id   
                 title
-                childPostSlug {
-                    slugPost
+                fields {
+                  genSlug
                 }
                 cover {
                  sizes(maxWidth: 1280) {
                     ...GatsbyContentfulSizes
                  }
-                }
-                categories {
-                  title 
-                  level
-                  slug
                 }
               }
             }
