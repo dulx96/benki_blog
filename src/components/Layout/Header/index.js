@@ -15,7 +15,6 @@ class Header extends React.PureComponent {
     this.state = {
       cateMenuOpen: false,
     }
-    this.modal = React.createRef()
     this.toggleCateMenu = this.toggleCateMenu.bind(this)
   }
 

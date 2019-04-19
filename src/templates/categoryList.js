@@ -1,16 +1,25 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 
+//components
 import Layout from 'components/Layout'
+import CategoryCard from 'components/Cards/CategoryCard'
 
 const CatList = ({ data }) => {
-  const { Lv2Cat } = data
-  const card = Lv2Cat.edges.map(edge => <Link
-    to={edge.node.fields.genSlug}>{edge.node.displayName} </Link>)
+  const { Categories } = data
+  const categoryCards = Categories.edges.map(edge => {
+    const title = edge.node.displayName
+    const link = edge.node.fields.genSlug
+    const coverImgFluid = edge.node.cover.fluid
+    const description = edge.node.description
+    return <CategoryCard title={title} link={link} coverImg={coverImgFluid}/>
+  })
   return (
     <Layout>
       <section className='container'>
-        {card}
+        <div className='row'>
+          {categoryCards}
+        </div>
       </section>
     </Layout>
   )
@@ -19,15 +28,21 @@ const CatList = ({ data }) => {
 export default CatList
 export const pageQuery = graphql`
  query($parentCatId: String!) {
-  Lv2Cat: allContentfulCategory(filter:{parentCat: {id: {eq: $parentCatId}}}) {
-    edges {
-      node {
-        displayName
-        fields {
-          genSlug
-         }
-      }
-    }
+   Categories: allContentfulCategory(filter:{parentCat: {id: {eq: $parentCatId}}}) {
+   edges {
+            node {
+              displayName
+              fields {
+                genSlug
+              }
+              description
+               cover {
+                 fluid(maxWidth: 800,maxHeight:500,cropFocus:CENTER,resizingBehavior:FILL, quality: 100) {
+                    ...GatsbyContentfulFluid_noBase64
+                 }
+                }
+            }
+          }
   }
 }
 `

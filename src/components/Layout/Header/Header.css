@@ -1,8 +1,9 @@
 @import "~hamburgers/dist/hamburgers.css";
 
-.header-logo {
-    width: 200px;
-    height: auto;
+@media screen and (min-width: 720px) {
+    .navbar__logo img {
+        width: 170px
+    }
 }
 
 .hamburger {
