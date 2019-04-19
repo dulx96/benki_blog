@@ -31,7 +31,7 @@ class Header extends React.PureComponent {
                                             to={slug}> {text} </Link></li>
     })
     return (
-      <header>
+      <header className={`${this.props.isHomePage ? 'homepage' : ''}`}>
         <nav className="navbar navbar-expand-sm navbar__header py-0 w-100">
           <div className="container">
             <div
