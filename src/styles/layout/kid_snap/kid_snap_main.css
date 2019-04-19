@@ -242,7 +242,7 @@
 
 .hero__main {
     height: 768px;
-    background: url(/static/hero-mobile@2x-ded639d065ec2927e931272e219da36a.jpg) no-repeat 50%;
+    background: url('~images/hero-mobile@2x.jpg') no-repeat 50%;
     background-size: cover;
     display: -webkit-flex;
     display: flex;
@@ -281,7 +281,7 @@
 @media screen and (min-width: 768px) {
     .hero__main {
         height: 930px;
-        background: url(/static/hero-tablet@2x-2ac6182ce965f111648c80cc6aa3c6ea.jpg) no-repeat 50%;
+        background: url('~images/hero-tablet@2x.jpg') no-repeat 50%;
         background-size: 1024px 930px
     }
 
@@ -293,7 +293,7 @@
 @media screen and (min-width: 1024px) {
     .hero__main {
         height: 840px;
-        background: url(/static/hero-fullhd@2x-2e4f72b0b74e48818b4b8e1247a53b22.jpg) no-repeat 50%;
+        background: url('~images/hero-fullhd@2x.jpg') no-repeat 50%;
         background-size: 2560px 840px
     }
 

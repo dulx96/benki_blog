@@ -132,7 +132,7 @@
 
 @media screen and (min-width: 768px) {
     .navbar__header {
-        background: url(/static/nav-sm@2x-b340af051acdc896d70ec1ac11bdcb2e.jpg) no-repeat 50%;
+        background: url('~images/nav-sm@2x.jpg') no-repeat 50%;
         height: 72px;
         background-size: 1024px 72px
     }
@@ -140,7 +140,7 @@
 
 @media screen and (min-width: 1024px) {
     .navbar__header {
-        background: url(/static/nav-xl@2x-9a65dec2c72bf7b96e4e2f3f1e765973.jpg) no-repeat 50%;
+        background: url('~images/nav-xl@2x.jpg') no-repeat 50%;
         height: 72px;
         background-size: 2560px 72px
     }

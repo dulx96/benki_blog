@@ -7,14 +7,8 @@ exports.createPages = ({ graphql, actions }) => {
             edges {
               node {
                 id   
-                title
-                childPostSlug {
-                 slugPost
-                }
-                categories {
-                  title
-                  level
-                  slug
+                fields {
+                 genSlug
                 }
               }
             }
@@ -29,8 +23,8 @@ exports.createPages = ({ graphql, actions }) => {
                                   parentCat {
                                     id
                                   }
-                                  childCategorySlug{
-                                    slugCategory
+                                  fields {
+                                    genSlug
                                   }
                                 }
                               }
@@ -45,7 +39,7 @@ exports.createPages = ({ graphql, actions }) => {
     // create page blog
     const blogPostTemplate = path.resolve('./src/templates/blogpost.js')
     result.data.allPost.edges.forEach(edge => {
-      const slug = edge.node.childPostSlug.slugPost
+      const slug = edge.node.fields.genSlug
       createPage({
         path: slug,
         component: blogPostTemplate,
@@ -61,7 +55,7 @@ exports.createPages = ({ graphql, actions }) => {
     const postListTemplate = path.resolve('./src/templates/postList.js')
     const allCategory = result.data.allCategory
     allCategory.edges.forEach(edge => {
-      const slug = edge.node.childCategorySlug.slugCategory
+      const slug = edge.node.fields.genSlug
       // subCat defined => crate child category page
       if (edge.node.subCat) {
         createPage({

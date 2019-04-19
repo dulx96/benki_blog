@@ -17,8 +17,8 @@ const Layout = (props) => (
               edges {
                 node {
                   displayName
-                  childCategorySlug{
-                    slugCategory
+                  fields {
+                   genSlug
                   }
                 }
               }

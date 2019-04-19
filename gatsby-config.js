@@ -19,8 +19,8 @@ module.exports = {
 
       },
     },
-    `gatsby-contentful-slug`
-    ,
+    `gatsby-contentful-category-slug`,
+    `gatsby-contentful-post-slug`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

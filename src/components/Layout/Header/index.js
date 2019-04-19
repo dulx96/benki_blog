@@ -15,25 +15,27 @@ class Header extends React.PureComponent {
     this.state = {
       cateMenuOpen: false,
     }
-    this.modal = React.createRef()
     this.toggleCateMenu = this.toggleCateMenu.bind(this)
   }
 
   toggleCateMenu = () => {
-    this.setState((prevState) => this.setState({ cateMenuOpen: !prevState.cateMenuOpen }))
+    this.setState(
+      (prevState) => this.setState({ cateMenuOpen: !prevState.cateMenuOpen }))
   }
 
   render() {
     const lv1Category = this.props.data.level1Category.edges.map(edge => {
       const text = edge.node.displayName
-      const slug = edge.node.childCategorySlug.slugCategory
-      return <li className="nav-item"><Link className="nav-link" to={slug}> {text} </Link></li>
+      const slug = edge.node.fields.genSlug
+      return <li className="nav-item"><Link className="nav-link"
+                                            to={slug}> {text} </Link></li>
     })
     return (
-      <header>
+      <header className={`${this.props.isHomePage ? 'homepage' : ''}`}>
         <nav className="navbar navbar-expand-sm navbar__header py-0 w-100">
           <div className="container">
-            <div className="navbar-brand d-flex justify-content-between w-100 align-items-center">
+            <div
+              className="navbar-brand d-flex justify-content-between w-100 align-items-center">
               <Link to="/" className="navbar__logo h5 font-weight-normal">
                 <img className="header-logo" src={Logo} alt="header-logo"/>
               </Link>
@@ -54,8 +56,9 @@ class Header extends React.PureComponent {
                 </button>
                 {/*<div className={classNames(styles.modalOverlay, { [styles.active]: this.state.cateMenuOpen })}/>*/}
                 {
-                  this.state.cateMenuOpen && <Modal category={lv1Category} active={this.state.cateMenuOpen}
-                                                    closeModal={this.toggleCateMenu.bind(this)}/>
+                  this.state.cateMenuOpen &&
+                  <Modal category={lv1Category} active={this.state.cateMenuOpen}
+                         closeModal={this.toggleCateMenu.bind(this)}/>
 
                 }
               </div>
@@ -104,12 +107,12 @@ class Modal extends React.PureComponent {
     })
   }
 
-
   render() {
     return (
       <div>
         <div
-          className={classNames('modal container fade', { 'show': this.state.loaded }, styles.modalNav)}
+          className={classNames('modal container fade',
+            { 'show': this.state.loaded }, styles.modalNav)}
           role="dialog" tabIndex={-1}
           onClick={this.closeModal}>
           <div className="modal-dialog mt-5" role="document">
@@ -124,7 +127,8 @@ class Modal extends React.PureComponent {
             </div>
           </div>
         </div>
-        <div className={classNames('modal-backdrop fade', { 'show': this.state.loaded })}/>
+        <div className={classNames('modal-backdrop fade',
+          { 'show': this.state.loaded })}/>
       </div>
     )
   }
@@ -140,9 +144,9 @@ export default props =>
               edges {
                 node {
                   displayName
-                  childCategorySlug{
-                    slugCategory
-                  }
+                  fields {
+                    genSlug
+                   }
                 }
               }
             }
