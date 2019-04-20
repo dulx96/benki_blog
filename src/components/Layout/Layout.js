@@ -9,26 +9,25 @@ import Header from './Header/'
 import 'styles/layout/index.css'
 import 'styles/layout/index.less'
 
-const Layout = (props) => (
+const Layout = props => (
   <StaticQuery
     query={graphql`
-       {
-           level1Category: allContentfulCategory(filter:{level: {eq:1}}) {
-              edges {
-                node {
-                  displayName
-                  fields {
-                   genSlug
-                  }
-                }
+      {
+        level1Category: allContentfulCategory(filter: { level: { eq: 1 } }) {
+          edges {
+            node {
+              displayName
+              fields {
+                genSlug
               }
             }
-          
           }
+        }
+      }
     `}
     render={data => (
       <>
-        <Header {...props}/>
+        <Header {...props} />
         <main>{props.children}</main>
       </>
     )}

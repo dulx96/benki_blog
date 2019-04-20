@@ -20,6 +20,7 @@ module.exports = {
       },
     },
     `gatsby-contentful-category-slug`,
+    `gatsby-contentful-breadcrumbs`,
     `gatsby-contentful-post-slug`,
     {
       resolve: `gatsby-source-filesystem`,

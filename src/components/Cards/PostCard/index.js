@@ -22,12 +22,10 @@ export default class PostCard extends React.PureComponent {
 
   render() {
     return (
-      <div className='card'>
+      <div className="card">
         <div>
           <Link to={this.props.link} className="news__clickable">
-            <h3>
-              {this.props.title}
-            </h3>
+            <h3>{this.props.title}</h3>
             <div className="clearfix header">
               <span className="subtitle float-left">
                 {this.props.updatedAt}
@@ -37,16 +35,13 @@ export default class PostCard extends React.PureComponent {
               </span>
             </div>
           </Link>
-          <hr/>
-          <div className='card-body'>
+          <hr />
+          <div className="card-body">
             <div>
-              <p style={{ overflow: 'hidden' }}>
-                {this.props.description}
-              </p>
+              <p style={{ overflow: 'hidden' }}>{this.props.description}</p>
             </div>
-
           </div>
-          <Img fluid={this.props.coverImg} alt={this.props.title}/>
+          <Img fluid={this.props.coverImg} alt={this.props.title} />
         </div>
       </div>
     )

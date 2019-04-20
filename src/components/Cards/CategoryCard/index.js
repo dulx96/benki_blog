@@ -19,14 +19,12 @@ export default class CategoryCard extends React.PureComponent {
 
   render() {
     return (
-      <div className='card'>
+      <div className="card">
         <div>
           <Link to={this.props.link} className="news__clickable">
-            <h3>
-              {this.props.title}
-            </h3>
+            <h3>{this.props.title}</h3>
           </Link>
-          <Img fluid={this.props.coverImg} alt={this.props.title}/>
+          <Img fluid={this.props.coverImg} alt={this.props.title} />
         </div>
       </div>
     )

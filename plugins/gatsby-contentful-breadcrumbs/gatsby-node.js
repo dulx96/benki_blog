@@ -1,14 +1,16 @@
-const genCategorySlug = (node, getNode) => {
-  return recursiveSlugCategory(node, getNode)
+const genBreadCrumbs = (node, getNode) => {
+  return recursiveBreadCrumbs(node, getNode)
 }
-const recursiveSlugCategory = (node, getNode) => {
+
+const recursiveBreadCrumbs = (node, getNode) => {
+  const tempArray = [{ level: node.level, displayName: node.displayName, slug: node.fields.genSlug }]
   const parentCatId = node.parentCat___NODE
-  if (!parentCatId) {
-    return '/' + node.slug + '/'
-  } else {
+  if (parentCatId) {
     const parentCatNode = getNode(parentCatId)
-    return recursiveSlugCategory(parentCatNode, getNode) + node.slug + '/'
+    return recursiveBreadCrumbs(parentCatNode, getNode).concat(tempArray)
   }
+  return tempArray
+
 }
 
 function onCreateNode({ node, getNode, actions }) {
@@ -19,11 +21,11 @@ function onCreateNode({ node, getNode, actions }) {
   }
   if (node.slug && node.level) {
     try {
-      const slug = genCategorySlug(node, getNode)
+      const breadcrumbs = genBreadCrumbs(node, getNode)
       createNodeField({
         node: node,
-        name: `genSlug`,
-        value: slug,
+        name: `genBreadcrumbs`,
+        value: breadcrumbs,
       })
       return {}
     } catch (e) {

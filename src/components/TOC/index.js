@@ -5,16 +5,18 @@ import AnchorLink from 'react-anchor-link-smooth-scroll'
 //style
 import './index.less'
 // functions
-const getHeaderChilds = (childrens, headings) => childrens.filter(c => {
-  if (['h1', 'h2', 'h3'].includes(c.tagName)) {
-    return true
-  } else
-    return false
-}).map((c, index) => ({
-  tagName: c.tagName,
-  id: c.properties.id,
-  text: headings[index].value,
-}))
+const getHeaderChilds = (childrens, headings) =>
+  childrens
+    .filter(c => {
+      if (['h1', 'h2', 'h3'].includes(c.tagName)) {
+        return true
+      } else return false
+    })
+    .map((c, index) => ({
+      tagName: c.tagName,
+      id: c.properties.id,
+      text: headings[index].value,
+    }))
 export default class TOC extends React.PureComponent {
   static propTypes = {
     htmlTree: PropTypes.object.isRequired,
@@ -54,23 +56,18 @@ export default class TOC extends React.PureComponent {
         tocEl.classList.remove('active')
       }
     })
-
   }
 
   componentDidMount() {
-
     if (typeof window !== 'undefined' && window) {
       this.handleScrollWindow()
       window.addEventListener('scroll', this.handleScrollWindow)
     }
-
   }
 
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScrollWindow)
-
   }
-
 
   render() {
     const childrens = this.props.htmlTree.children || []
@@ -81,14 +78,24 @@ export default class TOC extends React.PureComponent {
     const headerChilds = getHeaderChilds(childrens, headings)
     return (
       <div className="toc_container">
-        <div className="toc_name">
-          Mục lục
-        </div>
-        {headerChilds.map(e => <div key={e.id}
-                                    className={`${e.tagName === 'h1' ? 'level-1' : e.tagName === 'h2' ? 'level-2' : 'level-3'} item`}
-                                    id={`toc-${e.id}`}>
-          <AnchorLink href={`#${e.id}`} offset={this.defaulOffset}>{e.text}</AnchorLink>
-        </div>)}
+        <div className="toc_name">Mục lục</div>
+        {headerChilds.map(e => (
+          <div
+            key={e.id}
+            className={`${
+              e.tagName === 'h1'
+                ? 'level-1'
+                : e.tagName === 'h2'
+                ? 'level-2'
+                : 'level-3'
+            } item`}
+            id={`toc-${e.id}`}
+          >
+            <AnchorLink href={`#${e.id}`} offset={this.defaulOffset}>
+              {e.text}
+            </AnchorLink>
+          </div>
+        ))}
       </div>
     )
   }
