@@ -15,6 +15,21 @@ const CatList = ({ data }) => {
     return <CategoryCard title={title} link={link} coverImg={coverImgFluid}/>
   })
   const categoryName = Category.edges[0].node.displayName
+  const categoryLevel = Category.edges[0].node.level
+  const breadCrumbs = Category.edges[0].node.fields.genBreadCrumbs
+  const breadCrumbsLi = breadCrumbs.map(e => {
+      const isCurrent = e.level === categoryLevel
+      return <li
+        className={`breadcrumb-item ${isCurrent ? 'active' : ''}`}
+        aria-current={isCurrent && 'page'}
+      >
+        {isCurrent ? e.displayName : <Link to={e.slug}>
+          {e.displayName}
+        </Link>}
+
+      </li>
+    },
+  )
   return (
     <Layout>
       <section className="container">
@@ -22,22 +37,14 @@ const CatList = ({ data }) => {
           <div className="col-auto">
             <nav aria-label="breadcrumb">
               <ol className="breadcrumb">
-                <li className="breadcrumb-item">
-                  <a>toang</a>
-                </li>
-                <li className="breadcrumb-item">
-                  <a>toang</a>
-                </li>
-                <li className="breadcrumb-item">
-                  <a>toang</a>
-                </li>
+                {breadCrumbsLi}
               </ol>
             </nav>
           </div>
         </div>
         <div className="row">
           <div className="col">
-            <h1>{categoryName}</h1>
+            <h1 style={{ 'font-size': '3rem' }}>{categoryName}</h1>
           </div>
         </div>
         <div className="row">
@@ -79,7 +86,15 @@ export const pageQuery = graphql`
         {
           edges {
             node {
-              displayName 
+              displayName
+              level
+              fields {
+                genBreadCrumbs {
+                    level
+                    displayName
+                    slug
+               }
+              }
             }
           }
         }

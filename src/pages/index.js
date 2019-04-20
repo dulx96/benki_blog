@@ -45,7 +45,9 @@ class IndexPage extends React.PureComponent {
         <section className="container-fluid hero__main">
           <div className="container">
             <div className="row align-content-center text-center justify-content-center hero__main-content">
-              <div className="hero__main-content-items col-sm-8 col-md-9 col-lg-7 col-xl-6 mx-auto">
+              <div className="hero__main-content-items col-sm-8 col-md-9 col-lg-7 col-xl-6 mx-auto"
+                   style={{ 'align-self': 'center' }}>
+                {/*fix bug ios*/}
                 <h3 className="text-center">
                   Blog chia sẻ kiến thức tiếng Nhật
                 </h3>
@@ -97,7 +99,7 @@ class IndexPage extends React.PureComponent {
                   <div className="col-sm-15 text-center mt-24 mt-sm-0">
                     <div className="card card__kits">
                       <div className="kit-image">
-                        <img className="img-fluid" src={tuVung} alt="Từ Vựng" />
+                        <img className="img-fluid" src={tuVung} alt="Từ Vựng"/>
                       </div>
                       <h4 className="mt-2 mt-md-4 font-weight-demi purple">
                         Từ Vựng
@@ -121,7 +123,7 @@ class IndexPage extends React.PureComponent {
                   <div className="col-sm-15 text-center mt-24 mt-sm-0">
                     <div className="card card__kits">
                       <div className="kit-image">
-                        <img className="img-fluid" src={vanHoa} alt="Văn Hóa" />
+                        <img className="img-fluid" src={vanHoa} alt="Văn Hóa"/>
                       </div>
                       <h4 className="mt-2 mt-md-4 font-weight-demi orange">
                         Văn Hóa
