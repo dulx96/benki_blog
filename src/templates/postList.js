@@ -1,12 +1,12 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 
 //components
 import Layout from 'components/Layout'
 import PostCard from 'components/Cards/PostCard'
 
 const PostList = ({ data }) => {
-  const { postList } = data
+  const { postList, Category } = data
   const postCards = postList.edges.map(e => {
     const link = e.node.fields.genSlug
     const title = e.node.title
@@ -26,10 +26,44 @@ const PostList = ({ data }) => {
       />
     )
   })
+  const categoryName = Category.edges[0].node.displayName
+  const categoryLevel = Category.edges[0].node.level
+  const breadCrumbs = Category.edges[0].node.fields.genBreadCrumbs
+  const breadCrumbsLi = breadCrumbs.map(e => {
+      const isCurrent = e.level === categoryLevel
+      return <li
+        className={`breadcrumb-item ${isCurrent ? 'active' : ''}`}
+        aria-current={isCurrent && 'page'}
+      >
+        {isCurrent ? e.displayName : <Link to={e.slug}>
+          {e.displayName}
+        </Link>}
+
+      </li>
+    },
+  )
   return (
     <Layout>
       <section className="container">
-        <div className="row">{postCards}</div>
+        {/*breadscrumb*/}
+        <div className="row">
+          <div className="col-auto">
+            <nav aria-label="breadcrumb">
+              <ol className="breadcrumb">
+                {breadCrumbsLi}
+              </ol>
+            </nav>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col">
+            <h1>{categoryName}</h1>
+          </div>
+          <div className="w-100"/>
+          <div className="col-md-9 news__content">
+            {postCards}
+          </div>
+        </div>
       </section>
     </Layout>
   )
@@ -59,10 +93,9 @@ export const pageQuery = graphql`
           }
           cover {
             fluid(
-              maxWidth: 1280
               cropFocus: CENTER
               resizingBehavior: FILL
-              maxHeight: 600
+              maxHeight: 500
               quality: 100
             ) {
               ...GatsbyContentfulFluid_noBase64
@@ -71,5 +104,22 @@ export const pageQuery = graphql`
         }
       }
     }
+    Category: allContentfulCategory(
+    filter: {id: {eq: $lastCatId} } ) 
+      {
+        edges {
+          node {
+            displayName
+            level
+            fields {
+              genBreadCrumbs {
+                  level
+                  displayName
+                  slug
+             }
+            }
+          }
+        }
+      }
   }
 `

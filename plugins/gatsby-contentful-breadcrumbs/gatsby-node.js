@@ -9,6 +9,8 @@ const recursiveBreadCrumbs = (node, getNode) => {
     const parentCatNode = getNode(parentCatId)
     return recursiveBreadCrumbs(parentCatNode, getNode).concat(tempArray)
   }
+  // add home
+  tempArray.unshift({ level: 0, displayName: 'HOME', slug: '/' })
   return tempArray
 
 }
@@ -24,7 +26,7 @@ function onCreateNode({ node, getNode, actions }) {
       const breadcrumbs = genBreadCrumbs(node, getNode)
       createNodeField({
         node: node,
-        name: `genBreadcrumbs`,
+        name: `genBreadCrumbs`,
         value: breadcrumbs,
       })
       return {}

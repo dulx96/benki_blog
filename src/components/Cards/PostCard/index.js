@@ -22,8 +22,7 @@ export default class PostCard extends React.PureComponent {
 
   render() {
     return (
-      <div className="card">
-        <div>
+        <div className="card">
           <Link to={this.props.link} className="news__clickable">
             <h3>{this.props.title}</h3>
             <div className="clearfix header">
@@ -43,7 +42,6 @@ export default class PostCard extends React.PureComponent {
           </div>
           <Img fluid={this.props.coverImg} alt={this.props.title} />
         </div>
-      </div>
     )
   }
 }
