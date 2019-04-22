@@ -77,7 +77,7 @@ export default class TOC extends React.PureComponent {
     }
     const headerChilds = getHeaderChilds(childrens, headings)
     return (
-      <div className="toc_container">
+      <div className="toc_container card">
         <div className="toc_name">Mục lục</div>
         {headerChilds.map(e => (
           <div

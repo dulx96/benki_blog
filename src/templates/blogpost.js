@@ -49,7 +49,7 @@ export const pageQuery = graphql`
     Post: contentfulPost(id: { eq: $id }) {
       title
       cover {
-        fluid(maxWidth: 1280, quality:100) {
+        fluid(maxWidth: 1280, quality:70) {
           ...GatsbyContentfulFluid_noBase64
         }
       }

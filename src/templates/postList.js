@@ -96,7 +96,7 @@ export const pageQuery = graphql`
               cropFocus: CENTER
               resizingBehavior: FILL
               maxHeight: 500
-              quality: 100
+              quality: 70
             ) {
               ...GatsbyContentfulFluid_noBase64
             }
