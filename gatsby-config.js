@@ -59,6 +59,12 @@ module.exports = {
             },
           },
           {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              inlineCodeMarker: '>'
+            },
+          },
+          {
             resolve: `gatsby-remark-responsive-iframe`,
           },
           // `gatsby-remark-unwrap-images`,
