@@ -53,6 +53,12 @@ module.exports = {
         },
         plugins: [
           {
+            resolve: `gatsby-remark-ruby`,
+            options: {
+              parenthesis: '()',
+            },
+          },
+          {
             resolve: `gatsby-remark-responsive-iframe`,
           },
           // `gatsby-remark-unwrap-images`,
@@ -64,6 +70,7 @@ module.exports = {
               withWebp: true,
             },
           },
+
           `gatsby-remark-autolink-headers`,
         ],
       },
