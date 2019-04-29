@@ -8,11 +8,26 @@ import Img from 'gatsby-image'
 // style
 import './blogpost.less'
 
+const parseRbTag = (string) => {
+  const pattern = /{([^{}.]*)}\^\(([^\(\)]*)\)/
+  const re = new RegExp(pattern,'g')
+  return string.replace(re, (text) => {
+    const temp = pattern.exec(text)
+    const rb = temp[1]
+    const rt = temp[2]
+    return `<ruby>${rb}<rp>(</rp><rt>${rt}</rt><rp>)</rp></ruby>`
+  })
+}
+const processHtml = (html) => {
+  const result = parseRbTag(html)
+  return result
+}
 const BlogPost = ({ data }) => {
   const { Post } = data
   const content = Post.content
   const imageFluid = Post.cover.fluid
   const title = Post.title
+  const html = processHtml(content.childMarkdownRemark.html) //  cause code tag is all rendered as plain text, u need to parse after
   return (
     <Layout>
       <section className="container">
@@ -24,7 +39,7 @@ const BlogPost = ({ data }) => {
               <div
                 className="card-body"
                 dangerouslySetInnerHTML={{
-                  __html: content.childMarkdownRemark.html,
+                  __html: html,
                 }}
               />
             </div>
