@@ -3,6 +3,7 @@
 .post__list {
   padding-top: 0 !important;
 }
+
 .breadcrumb {
   font-family: SVN Avenir Next Rounded Demi, Helvetica Neue, Helvetica, sans-serif;
 
@@ -15,4 +16,33 @@
       color: #9b59b6;
     }
   }
+}
+
+// code highlight custom
+pre[class*='language-']::before {
+  background: #ddd;
+  border-radius: 0 0 4px 4px;
+  color: hsla(270,17.119554496%,0%,0.92);
+  font-size: 0.75rem;
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;
+  letter-spacing: 0.075em;
+  line-height: 1;
+  padding: 0.25rem 0.5rem;
+  position: absolute;
+  right: 1.5rem;
+  text-align: right;
+  text-transform: uppercase;
+  top: 0;
+}
+pre[class='language-vi_du']::before {
+  content: 'ví dụ' ;
+  background: red;
+}
+pre[class='language-y_nghia']::before {
+  content: 'ý nghĩa' ;
+  background: green;
+}
+pre[class='language-cach_dung']::before {
+  content: 'cách dùng' ;
+  background: purple;
 }

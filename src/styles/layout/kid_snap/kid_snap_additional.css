@@ -508,13 +508,15 @@
 
 code[class*=language-], pre[class*=language-] {
     color: #657b83;
-    font-family: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
+    font-family: SVN Avenir Next Rounded, Helvetica Neue, Helvetica, sans-serif;
+    display: block;
+    position: relative;
     font-size: 1em;
     text-align: left;
-    white-space: pre;
+    white-space: pre-line;
     word-spacing: normal;
-    word-break: normal;
-    word-wrap: normal;
+    word-break: break-word;
+    word-wrap: break-word;
     line-height: 1.5;
     -moz-tab-size: 4;
     -o-tab-size: 4;
@@ -536,7 +538,7 @@ pre[class*=language-] {
 }
 
 :not(pre) > code[class*=language-], pre[class*=language-] {
-    background-color: #fdf6e3
+    background-color: rgba(0, 0, 0, .05);
 }
 
 :not(pre) > code[class*=language-] {
