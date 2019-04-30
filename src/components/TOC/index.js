@@ -25,7 +25,7 @@ export default class TOC extends React.PureComponent {
 
   constructor() {
     super()
-    this.defaulOffset = 100
+    this.defaultOffset = 100
     this.handleScrollWindow = this.handleScrollWindow.bind(this)
     this.activeClassActiveTOC = this.activeClassActiveTOC.bind(this)
   }
@@ -88,11 +88,10 @@ export default class TOC extends React.PureComponent {
                 : e.tagName === 'h2'
                 ? 'level-2'
                 : 'level-3'
-            } item`}
+              } item`}
             id={`toc-${e.id}`}
           >
-            <AnchorLink href={`#${e.id}`} offset={this.defaulOffset}>
-              {e.text}
+            <AnchorLink href={`#${e.id}`} offset={this.defaultOffset} dangerouslySetInnerHTML={{ __html: e.text }}>
             </AnchorLink>
           </div>
         ))}

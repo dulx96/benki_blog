@@ -10,7 +10,7 @@ import './blogpost.less'
 
 const parseRbTag = (string) => {
   const pattern = /{([^{}.]*)}\^\(([^\(\)]*)\)/
-  const re = new RegExp(pattern,'g')
+  const re = new RegExp(pattern, 'g')
   return string.replace(re, (text) => {
     const temp = pattern.exec(text)
     const rb = temp[1]
@@ -18,9 +18,22 @@ const parseRbTag = (string) => {
     return `<ruby>${rb}<rp>(</rp><rt>${rt}</rt><rp>)</rp></ruby>`
   })
 }
+const parseCodeInCodeTag = (string) => {
+  const pattern = /`([^`]*)\$\$([^`]*)`/
+  const re = new RegExp(pattern, 'g')
+  return string.replace(re, (text) => {
+    const temp = pattern.exec(text)
+    const cl = temp[1]
+    const content = temp[2]
+    return `<code class='language-${cl}'>${content}</code>`
+  })
+
+}
 const processHtml = (html) => {
-  const result = parseRbTag(html)
-  return result
+  let temp
+  temp = parseRbTag(html)
+  temp = parseCodeInCodeTag(temp)
+  return temp
 }
 const BlogPost = ({ data }) => {
   const { Post } = data

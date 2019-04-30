@@ -19,30 +19,80 @@
 }
 
 // code highlight custom
+code[class*=language-], pre[class*=language-] {
+  color: #657b83;
+  font-family: SVN Avenir Next Rounded, Helvetica Neue, Helvetica, sans-serif;
+  font-size: 1em;
+  position: relative;
+  text-align: left;
+  white-space: pre-line;
+  word-spacing: normal;
+  word-break: break-word;
+  word-wrap: break-word;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none
+}
+
+pre[class*=language-] code[class*=language-] {
+  display: block;
+}
+
+code[class*=language-] {
+  code {
+    display: inline !important;
+  }
+}
+
+pre[class*='language-'] {
+  padding-top: 2rem;
+}
+
 pre[class*='language-']::before {
   background: #ddd;
   border-radius: 0 0 4px 4px;
-  color: hsla(270,17.119554496%,0%,0.92);
-  font-size: 0.75rem;
-  font-family: SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;
+  color: hsla(270, 17.119554496%, 0%, 0.92);
+  font-size: 1.2rem;
+  font-family: SVN Avenir Next Rounded Demi, Roboto, Monaco, Consolas, Liberation Mono, Courier New, monospace;
   letter-spacing: 0.075em;
   line-height: 1;
-  padding: 0.25rem 0.5rem;
+  padding: 0.35rem 0.5rem;
   position: absolute;
   right: 1.5rem;
   text-align: right;
   text-transform: uppercase;
   top: 0;
 }
-pre[class='language-vi_du']::before {
-  content: 'ví dụ' ;
-  background: red;
+
+pre[class='language-benki-exam']::before {
+  content: 'VI DU';
+  background: var(--red);
+  color: white;
 }
-pre[class='language-y_nghia']::before {
-  content: 'ý nghĩa' ;
-  background: green;
+
+pre[class='language-benki-mean']::before {
+  content: 'Y NGHIA';
+  background: var(--blue);
+  color: white;
+
 }
-pre[class='language-cach_dung']::before {
-  content: 'cách dùng' ;
-  background: purple;
+
+pre[class='language-benki-how']::before {
+  content: 'CACH DUNG';
+  background: var(--purple);
+  color: white;
 }
+
+code[class*='language-color-'] {
+  background-color: transparent !important;
+}
+
+code[class='language-color-red'] {
+  color: var(--red);
+}
+
+

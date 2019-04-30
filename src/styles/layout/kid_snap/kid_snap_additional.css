@@ -506,26 +506,6 @@
     }
 }
 
-code[class*=language-], pre[class*=language-] {
-    color: #657b83;
-    font-family: SVN Avenir Next Rounded, Helvetica Neue, Helvetica, sans-serif;
-    display: block;
-    position: relative;
-    font-size: 1em;
-    text-align: left;
-    white-space: pre-line;
-    word-spacing: normal;
-    word-break: break-word;
-    word-wrap: break-word;
-    line-height: 1.5;
-    -moz-tab-size: 4;
-    -o-tab-size: 4;
-    tab-size: 4;
-    -webkit-hyphens: none;
-    -ms-hyphens: none;
-    hyphens: none
-}
-
 code[class*=language-]::selection, code[class*=language-] ::selection, pre[class*=language-]::selection, pre[class*=language-] ::selection {
     background: #073642
 }
@@ -683,11 +663,11 @@ section.hero__kits-overview-section {
 
 .news__content {
     color: #000;
-    font-family: SVN Avenir Next Rounded Demi, Helvetica Neue, Helvetica, sans-serif
+    font-family: SVN Avenir Next Rounded, Helvetica Neue, Helvetica, sans-serif
 }
 
 .news__content h2, .news__content h3, .news__content h4 {
-    margin-bottom: 0
+    margin-bottom: 0;
 }
 
 .news__content h2, .news__h2 {
@@ -699,6 +679,26 @@ section.hero__kits-overview-section {
     .news__content h2 {
         font-size: 36px
     }
+
+    .news__content h2 {
+        margin-top: 1em;
+    }
+
+    .news__content h3, .news__content h4 {
+        margin-top: 0.5em;
+    }
+}
+
+/* purgecss ignore */
+.news__content .gatsby-resp-image-wrapper {
+    margin-top: 1rem;
+}
+
+/* purgecss ignore */
+.news__content .gatsby-image-wrapper {
+    margin-top: 1rem;
+    margin-bottom: 0.7rem;
+
 }
 
 .news__content .card h3 {

@@ -61,7 +61,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
-              inlineCodeMarker: '^^'
+              inlineCodeMarker: '$$'
             },
           },
           {
@@ -104,6 +104,8 @@ module.exports = {
       resolve: `gatsby-plugin-purgecss`,
       options: {
         printRejected: true,
+        develop: true,
+        whitelist: ['pre', 'code']
       },
     },
   ],
