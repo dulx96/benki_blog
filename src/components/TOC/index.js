@@ -26,6 +26,7 @@ export default class TOC extends React.PureComponent {
   constructor() {
     super()
     this.defaultOffset = 100
+    this.toc = React.createRef()
     this.handleScrollWindow = this.handleScrollWindow.bind(this)
     this.activeClassActiveTOC = this.activeClassActiveTOC.bind(this)
   }
@@ -34,10 +35,13 @@ export default class TOC extends React.PureComponent {
     const childrens = this.props.htmlTree.children || []
     const headings = this.props.headings
     const headerChilds = getHeaderChilds(childrens, headings)
+    const scrollHeight = window.pageYOffset
+    const transformToc = this.defaultOffset > scrollHeight ? -scrollHeight : -this.defaultOffset
+    this.toc.current.style = `transform: translateY(${transformToc}px)`
     headerChilds.map(c => {
       const el = document.getElementById(c.id)
       const topOffset = el.getBoundingClientRect().top
-      if (topOffset >= 0 && topOffset <= this.defaulOffset) {
+      if (topOffset >= 0 && topOffset <= this.defaultOffset) {
         this.activeClassActiveTOC(c.id)
       }
     })
@@ -77,7 +81,7 @@ export default class TOC extends React.PureComponent {
     }
     const headerChilds = getHeaderChilds(childrens, headings)
     return (
-      <div className="toc_container card">
+      <div className="toc_container card" ref={this.toc}>
         <div className="toc_name">Mục lục</div>
         {headerChilds.map(e => (
           <div
@@ -91,8 +95,7 @@ export default class TOC extends React.PureComponent {
               } item`}
             id={`toc-${e.id}`}
           >
-            <AnchorLink href={`#${e.id}`} offset={this.defaultOffset} dangerouslySetInnerHTML={{ __html: e.text }}>
-            </AnchorLink>
+            <AnchorLink href={`#${e.id}`} offset={this.defaultOffset} dangerouslySetInnerHTML={{ __html: e.text }}/>
           </div>
         ))}
       </div>
