@@ -744,12 +744,12 @@ section.hero__kits-overview-section {
     padding: 29px 16px
 }
 
-.news__content .card:last-of-type {
-    margin-bottom: 0;
-    padding-bottom: 220px;
-    background: url(news-footer.png) no-repeat bottom #fff;
-    background-size: contain
-}
+/*.news__content .card:last-of-type {*/
+/*    margin-bottom: 0;*/
+/*    padding-bottom: 220px;*/
+/*    background: url(news-footer.png) no-repeat bottom #fff;*/
+/*    background-size: contain*/
+/*}*/
 
 .news__content .card-body {
     padding: 0

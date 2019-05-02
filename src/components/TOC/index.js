@@ -2,13 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 // plugin
 import AnchorLink from 'react-anchor-link-smooth-scroll'
+import { Scrollbars } from 'react-custom-scrollbars'
+
 //style
 import './index.less'
 // functions
 const getHeaderChilds = (childrens, headings) =>
   childrens
     .filter(c => {
-      if (['h1', 'h2', 'h3'].includes(c.tagName)) {
+      if (['h4', 'h2', 'h3'].includes(c.tagName)) {
         return true
       } else return false
     })
@@ -82,22 +84,28 @@ export default class TOC extends React.PureComponent {
     const headerChilds = getHeaderChilds(childrens, headings)
     return (
       <div className="toc_container card" ref={this.toc}>
-        <div className="toc_name">Mục lục</div>
-        {headerChilds.map(e => (
-          <div
-            key={e.id}
-            className={`${
-              e.tagName === 'h1'
-                ? 'level-1'
-                : e.tagName === 'h2'
-                ? 'level-2'
-                : 'level-3'
-              } item`}
-            id={`toc-${e.id}`}
-          >
-            <AnchorLink href={`#${e.id}`} offset={this.defaultOffset} dangerouslySetInnerHTML={{ __html: e.text }}/>
+        <Scrollbars autoHeight autoHeightMax={`calc(100vh) - ${this.defaultOffset}px`} autoHide>
+          <div style={{ padding: '0 46px' }}>
+            <div className="toc_name">Mục lục</div>
+            {headerChilds.map(e => (
+              <div
+                key={e.id}
+                className={`${
+                  e.tagName === 'h2'
+                    ? 'level-1'
+                    : e.tagName === 'h3'
+                    ? 'level-2'
+                    : 'level-3'
+                  } item`}
+                id={`toc-${e.id}`}
+              >
+                <AnchorLink href={`#${e.id}`} offset={this.defaultOffset} dangerouslySetInnerHTML={{ __html: e.text }}/>
+              </div>
+            ))}
           </div>
-        ))}
+
+        </Scrollbars>
+
       </div>
     )
   }
