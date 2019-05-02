@@ -84,7 +84,7 @@ export default class TOC extends React.PureComponent {
     const headerChilds = getHeaderChilds(childrens, headings)
     return (
       <div className="toc_container card" ref={this.toc}>
-        <Scrollbars autoHeight autoHeightMax={`calc(100vh) - ${this.defaultOffset}px`} autoHide>
+        <Scrollbars autoHeight autoHeightMax={`calc(100vh) - ${this.defaultOffset}px`} autoHide universal>
           <div style={{ padding: '0 46px' }}>
             <div className="toc_name">Mục lục</div>
             {headerChilds.map(e => (

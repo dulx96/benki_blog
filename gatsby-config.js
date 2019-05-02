@@ -3,11 +3,6 @@ require('dotenv').config({
 })
 const { CONTENTFUL_SPACE_ID, CONTENTFUL_ACCESS_TOKEN, ANALYTICS_ID } = process.env
 module.exports = {
-  siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
-  },
   plugins: [
     `gatsby-plugin-resolve-src`,
     `gatsby-plugin-react-helmet`,
@@ -31,18 +26,6 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    // {
-    //   resolve: `gatsby-plugin-manifest`,
-    //   options: {
-    //     name: `gatsby-starter-default`,
-    //     short_name: `starter`,
-    //     start_url: `/`,
-    //     background_color: `#663399`,
-    //     theme_color: `#663399`,
-    //     display: `minimal-ui`,
-    //     icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
-    //   },
-    // },
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -61,7 +44,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
-              inlineCodeMarker: '$$'
+              inlineCodeMarker: '$$',
             },
           },
           {
@@ -105,7 +88,20 @@ module.exports = {
       options: {
         printRejected: true,
         develop: true,
-        whitelist: ['pre', 'code']
+        whitelist: ['pre', 'code'],
+      },
+    },
+    `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Benki-Blog`,
+        short_name: `Benki-Blog`,
+        start_url: `/`,
+        background_color: `#663399`,
+        theme_color: `#663399`,
+        display: `standalone`,
+        icon: `src/images/fav-icon/favicon-128.png`, // This path is relative to the root of the site.
       },
     },
   ],

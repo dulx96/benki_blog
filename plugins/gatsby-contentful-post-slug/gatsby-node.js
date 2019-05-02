@@ -9,7 +9,7 @@ const genPostSlug = (node, category) => {
   // const sortedArray = categories.sort((a, b) => (a.level > b.level) ? 1 : -1)
   // return sortedArray.reduce((m, c) => m + c.slug + '/', '/') + slug + '-' +
   //   add + '/'
-  slug = category.fields.genSlug + slug + '-' + additional
+  slug = category.fields.genSlug + slug + '-' + additional + '/'
   return slug
 }
 
