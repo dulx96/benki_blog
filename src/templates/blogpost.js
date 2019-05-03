@@ -45,7 +45,7 @@ const BlogPost = ({ data }) => {
     <Layout>
       <section className="container">
         <div className="row news__content">
-          <div className="col-lg-9 px-0 docs__content">
+          <div className="col-md-9 px-0 docs__content">
             <div className="card">
               <h1>{title}</h1>
               <Img sizes={imageFluid} alt={title}/>
@@ -58,8 +58,8 @@ const BlogPost = ({ data }) => {
             </div>
           </div>
           <div className="container toc">
-            <div className="col-lg-9"/>
-            <div className="col-lg-3">
+            <div className="col-md-9"/>
+            <div className="col-md-3">
               <TOC
                 htmlTree={content.childMarkdownRemark.htmlAst}
                 headings={content.childMarkdownRemark.headings}
