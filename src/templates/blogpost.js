@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 import Layout from 'components/Layout'
-import TOC from 'components/TOC'
+import { TOC_PC, TOC_Mobile } from 'components/TOC'
 // plugin
 import Img from 'gatsby-image'
 // style
@@ -49,6 +49,8 @@ const BlogPost = ({ data }) => {
             <div className="card">
               <h1>{title}</h1>
               <Img sizes={imageFluid} alt={title}/>
+              <TOC_Mobile htmlTree={content.childMarkdownRemark.htmlAst}
+                          headings={content.childMarkdownRemark.headings}/>
               <div
                 className="card-body"
                 dangerouslySetInnerHTML={{
@@ -60,7 +62,7 @@ const BlogPost = ({ data }) => {
           <div className="container toc">
             <div className="col-md-9"/>
             <div className="col-md-3">
-              <TOC
+              <TOC_PC
                 htmlTree={content.childMarkdownRemark.htmlAst}
                 headings={content.childMarkdownRemark.headings}
               />
