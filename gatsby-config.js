@@ -89,6 +89,7 @@ module.exports = {
         printRejected: true,
         develop: true,
         whitelist: ['pre', 'code'],
+        ignore: ['/TOC'],
       },
     },
     `gatsby-plugin-offline`,

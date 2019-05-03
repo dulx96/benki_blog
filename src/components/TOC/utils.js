@@ -52,4 +52,4 @@ const genClassLevelByHeading = (tagName, maxHeading) => {
   return 'level-' + level
 
 }
-export { filterHeading, genClassLevelByHeading, getHeaderChilds, getMaxHeading, getHeaderChildsFiltered }
+export { genClassLevelByHeading, getMaxHeading, getHeaderChildsFiltered }
