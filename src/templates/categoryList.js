@@ -39,7 +39,7 @@ const CatList = ({ data }) => {
   const SEO_INFO = {
     title: dataCategory.displayName,
     description: dataCategory.description,
-    linkImage: dataCategory.cover.seoImage.src,
+    linkImage: 'https:' + dataCategory.cover.seoImage.src,
     canonicalUrl: 'https:benkitv.com' + dataCategory.fields.genSlug,
   }
   return (

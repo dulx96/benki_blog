@@ -49,7 +49,7 @@ const BlogPost = ({ data }) => {
   const SEO_INFO = {
     title: Post.title,
     description: Post.description,
-    linkImage: Post.cover.seoImage.src,
+    linkImage: 'https:' + Post.cover.seoImage.src,
     canonicalUrl: 'https://blog.benkitv.com' + Post.fields.genSlug,
   }
   return (
