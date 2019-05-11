@@ -5,6 +5,9 @@ import { graphql, Link } from 'gatsby'
 import Layout from 'components/Layout'
 import PostCard from 'components/Cards/PostCard'
 
+// SEO
+import SEO from 'SEO'
+
 const PostList = ({ data }) => {
   const { postList, Category } = data
   const postCards = postList.edges.map(e => {
@@ -42,8 +45,18 @@ const PostList = ({ data }) => {
       </li>
     },
   )
+
+  // seo info
+  const dataCategory = Category.edges[0].node
+  const SEO_INFO = {
+    title: dataCategory.displayName,
+    description: dataCategory.description,
+    linkImage: dataCategory.cover.seoImage.src,
+    canonicalUrl: 'https:benkitv.com' + dataCategory.fields.genSlug,
+  }
   return (
     <Layout>
+      <SEO {...SEO_INFO} />
       <section className="container">
         {/*breadscrumb*/}
         <div className="row">
@@ -111,7 +124,20 @@ export const pageQuery = graphql`
           node {
             displayName
             level
+            description
+            cover {
+                seoImage: fluid(
+                  maxWidth: 1200
+                  maxHeight: 630
+                  cropFocus: CENTER
+                  resizingBehavior: FILL
+                  quality: 70
+                ) {
+                  src
+                }
+            }
             fields {
+              genSlug
               genBreadCrumbs {
                   level
                   displayName

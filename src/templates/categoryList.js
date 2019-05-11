@@ -5,6 +5,9 @@ import { graphql, Link } from 'gatsby'
 import Layout from 'components/Layout'
 import CategoryCard from 'components/Cards/CategoryCard'
 
+// SEO
+import SEO from 'SEO'
+
 const CatList = ({ data }) => {
   const { SubCategories, Category } = data
   const categoryCards = SubCategories.edges.map(edge => {
@@ -30,8 +33,18 @@ const CatList = ({ data }) => {
       </li>
     },
   )
+
+  // seo info
+  const dataCategory = Category.edges[0].node
+  const SEO_INFO = {
+    title: dataCategory.displayName,
+    description: dataCategory.description,
+    linkImage: dataCategory.cover.seoImage.src,
+    canonicalUrl: 'https:benkitv.com' + dataCategory.fields.genSlug,
+  }
   return (
     <Layout>
+      <SEO {...SEO_INFO} />
       <section className="container">
         <div className="row">
           <div className="col-auto">
@@ -87,8 +100,21 @@ export const pageQuery = graphql`
           edges {
             node {
               displayName
+              description
+              cover {
+                  seoImage: fluid(
+                    maxWidth: 1200
+                    maxHeight: 630
+                    cropFocus: CENTER
+                    resizingBehavior: FILL
+                    quality: 70
+                  ) {
+                    src
+                  }
+              }
               level
               fields {
+                genSlug
                 genBreadCrumbs {
                     level
                     displayName

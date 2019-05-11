@@ -14,6 +14,10 @@ import giaoTiep from 'images/giao_tiep.png'
 import vanHoa from 'images/van_hoa.png'
 import nhatBan from 'images/nhat_ban.png'
 
+// SEO
+import SEO from 'SEO'
+import { HOME as SEOINFO } from '../SEO/info'
+
 class IndexPage extends React.PureComponent {
   constructor(props) {
     super(props)
@@ -40,8 +44,10 @@ class IndexPage extends React.PureComponent {
         />
       )
     })
+
     return (
       <Layout isHomePage={true}>
+        <SEO {...SEOINFO}/>
         <section className="container-fluid hero__main">
           <div className="container">
             <div className="row align-content-center text-center justify-content-center hero__main-content">

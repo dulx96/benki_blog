@@ -8,6 +8,9 @@ import Img from 'gatsby-image'
 // style
 import './blogpost.less'
 
+// SEO
+import SEO from 'SEO'
+
 const parseRbTag = (string) => {
   const pattern = /{([^{}.]*)}\^\(([^\(\)]*)\)/
   const re = new RegExp(pattern, 'g')
@@ -41,8 +44,17 @@ const BlogPost = ({ data }) => {
   const imageFluid = Post.cover.fluid
   const title = Post.title
   const html = processHtml(content.childMarkdownRemark.html) //  cause code tag is all rendered as plain text, u need to parse after
+
+  // SEO INFO
+  const SEO_INFO = {
+    title: Post.title,
+    description: Post.description,
+    linkImage: Post.cover.seoImage.src,
+    canonicalUrl: 'https://blog.benkitv.com' + Post.fields.genSlug,
+  }
   return (
     <Layout>
+      <SEO {...SEO_INFO} />
       <section className="container">
         <div className="row news__content">
           <div className="col-md-9 px-0 docs__content">
@@ -78,10 +90,23 @@ export const pageQuery = graphql`
   query($id: String!) {
     Post: contentfulPost(id: { eq: $id }) {
       title
+      description
+      fields {
+                genSlug
+              }
       cover {
         fluid(maxWidth: 1280, quality:70) {
           ...GatsbyContentfulFluid_noBase64
         }
+        seoImage: fluid(
+                    maxWidth: 1200
+                    maxHeight: 630
+                    cropFocus: CENTER
+                    resizingBehavior: FILL
+                    quality: 70
+                  ) {
+                    src
+                  }
       }
       content {
           childMarkdownRemark {
