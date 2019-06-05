@@ -48,7 +48,7 @@ const BlogPost = ({ data }) => {
   // SEO INFO
   const SEO_INFO = {
     title: Post.title,
-    description: Post.description,
+    description: Post.description || content.childMarkdownRemark.excerpt,
     linkImage: 'https:' + Post.cover.seoImage.src,
     canonicalUrl: 'https://blog.benkitv.com' + Post.fields.genSlug,
   }
@@ -59,7 +59,7 @@ const BlogPost = ({ data }) => {
         <div className="row news__content">
           <div className="col-md-9 px-0 docs__content">
             <div className="card">
-              <h1>{title}</h1>
+              <h2>{title}</h2>
               <Img sizes={imageFluid} alt={title}/>
               <TOC_Mobile htmlTree={content.childMarkdownRemark.htmlAst}
                           headings={content.childMarkdownRemark.headings}/>
@@ -115,6 +115,7 @@ export const pageQuery = graphql`
             headings {
               value
             }
+            excerpt
           }
       }
     }
