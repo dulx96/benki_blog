@@ -32,10 +32,20 @@ const parseCodeInCodeTag = (string) => {
   })
 
 }
+const parseStrikeTag = (string) => {
+  const pattern = /~~([^~]*)~~/
+  const re = new RegExp(pattern, 'g')
+  return string.replace(re, (text) => {
+    const temp = pattern.exec(text)
+    const content = temp[1]
+    return `<s>${content}</s>`
+  })
+}
 const processHtml = (html) => {
   let temp
   temp = parseRbTag(html)
   temp = parseCodeInCodeTag(temp)
+  temp = parseStrikeTag(temp)
   return temp
 }
 const BlogPost = ({ data }) => {
